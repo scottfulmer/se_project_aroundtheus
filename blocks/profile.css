@@ -7,6 +7,24 @@
   position: relative;
   margin: 0 auto;
 }
+@media screen and (max-width: 1200px) {
+  .profile {
+    flex-direction: column;
+  }
+  .profile__info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .profile__description {
+    width: 100%;
+    text-align: center;
+  }
+  .profile__add-button {
+    margin: 0;
+    width: 100%;
+  }
+}
 .profile__info {
   display: grid;
   grid-template-areas: "title button" "description description";
