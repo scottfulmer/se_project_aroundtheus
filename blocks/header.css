@@ -1,3 +1,11 @@
 .header {
   margin-top: 45px;
 }
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .header {
+    padding: 45px 0 38px;
+  }
+  .header__title {
+    padding-left: 27px;
+  }
+}
