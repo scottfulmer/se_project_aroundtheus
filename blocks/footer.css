@@ -1,13 +1,11 @@
 .footer {
   max-width: 880px;
   padding: 67px 0 36px 0;
-  margin: 0 auto;
+  margin-left: 350px;
 }
-
 .footer__copyright {
   color: gray;
   font-family: Inter, Arial, sans-serif;
-  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
