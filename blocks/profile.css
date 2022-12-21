@@ -6,6 +6,9 @@
   width: 100%;
   position: relative;
   margin: 0 auto;
+  margin-top: 36.5px;
+  border-top: 1px solid #545454;
+  opacity: 0.7;
 }
 
 .profile__info {
