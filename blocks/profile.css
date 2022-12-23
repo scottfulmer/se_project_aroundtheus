@@ -105,17 +105,17 @@
     height: 127.5px;
   }
   .profile__title {
-    margin: auto;
+    margin-left: 62px;
     font-size: 22px;
     padding-top: 26.25px;
-    width: auto;
+    width: 196px;
   }
   .profile__edit-button {
     margin-top: 24px;
     width: 18px;
     height: 18px;
-    padding: 0;
-    margin-left: 0;
+    margin-left: 15px;
+    margin-right: 15px;
   }
   .profile__add-button {
     width: 282px;
@@ -135,5 +135,6 @@
   }
   .profile__add-button {
     margin-right: 19px;
+    padding-right: 200px;
   }
 }
