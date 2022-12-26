@@ -1,12 +1,11 @@
 .profile {
+  max-width: 880px;
   display: flex;
   align-items: center;
-  padding-top: 40px;
-  max-width: 880px;
-  width: 100%;
-  position: relative;
-  margin: 0 auto;
   margin-top: 36.5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .profile__info {
@@ -79,8 +78,6 @@
 @media screen and (min-width: 320px) and (max-width: 760px) {
   .profile {
     flex-direction: column;
-    padding: 0 0 36px 0;
-    width: 168.75px;
   }
   .profile__description {
     justify-self: center;
@@ -113,12 +110,8 @@
 }
 @media screen and (min-width: 768px) and (max-width: 1275px) {
   .profile {
-    padding: 40px 0 51px 0;
-    width: 880px;
-    margin-left: 90px;
   }
   .profile__add-button {
     margin-right: 19px;
-    padding-right: 200px;
   }
 }
