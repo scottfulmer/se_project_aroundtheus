@@ -85,7 +85,7 @@
   border: none;
   background-color: transparent;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: contain;`
 }
 .modal__close:hover {
   cursor: pointer;
