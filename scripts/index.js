@@ -30,12 +30,15 @@ const initialCards = [
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileEditClose = document.querySelector("#profile-edit-close");
+const add = document.querySelector("#add-card-modal");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
+const addNewCardButton = document.querySelector(".profile__add-button");
+
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
@@ -74,6 +77,10 @@ profileEditButton.addEventListener("click", () => {
   profileDescriptionInput.value = profileDescription.textContent;
   profileEditModal.classList.add("modal_opened");
 });
+addNewCardButton.addEventListener("click", () => openModal(editProfileModal));
+addCardModalCloseButton.addEventListener("click", () =>
+  closeModal(addCardModal)
+);
 
 profileEditClose.addEventListener("click", closePopop);
 
@@ -82,4 +89,8 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
   cardListEl.append(cardElement);
+});
+
+initialCards.forEach((cardData) => {
+  cardsWrap.prepend(getCardElement(initialCards[i]));
 });

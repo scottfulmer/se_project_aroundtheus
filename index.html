@@ -72,6 +72,33 @@
         </form>
       </div>
     </div>
+    <div class="modal" id="add-card-modal">
+      <div class="modal__container">
+        <button class="modal__close" id="profile-edit-close"></button>
+        <form class="modal__form" id="add-card-form">
+          <h3 class="modal__heading">New Place</h3>
+          <fieldset class="modal__form-fieldset">
+            <input
+              class="modal__form-input modal__form-input-title"
+              type="text"
+              name="title"
+              id="profile-title-input"
+              placeholder="Title"
+            />
+            <span class="modal__form-divider"></span>
+            <input
+              class="modal__form-input modal__form-input-url"
+              type="text"
+              name="url"
+              id="profile-description-input"
+              placeholder="Image URL"
+            />
+            <span class="modal__form-divider"></span>
+            <button type="submit" class="modal__button">Save</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
     <template id="card-template">
       <li class="card">
         <img src="./images/yosemite-valley.jpg" class="card__image" alt="" />
