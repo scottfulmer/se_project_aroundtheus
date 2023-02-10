@@ -24,6 +24,20 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
+
+/* -------------------------------------------------------------------------- */
+/*                                   Buttons                                   */
+/* -------------------------------------------------------------------------- */
+const addCardFormElement = addCardModal.querySelector("#modal__form");
+
+const cardTitleInput = addCardFormElement.querySelector(
+  ".modal__input-type-title"
+);
+
+const profileEditButton = document.querySelector("#profile-edit-button");
+const addCardModalCloseButton = document.querySelector("#add-card-modal");
+const addNewCardButton = document.querySelector(".profile__add-button");
+
 /* -------------------------------------------------------------------------- */
 /*                                  Form Data                                 */
 /* -------------------------------------------------------------------------- */
@@ -33,18 +47,8 @@ const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
-//const cardTitleInput = addCardFormElement.querySelector(
-  "modal__input-type-title"
-);
-//const cardUrlInput = addCardFormElement.querySelector("#modal__input-type-url");
 
-/* -------------------------------------------------------------------------- */
-/*                                   Buttons                                   */
-/* -------------------------------------------------------------------------- */
-
-const profileEditButton = document.querySelector("#profile-edit-button");
-const addCardModalCloseButton = document.querySelector("#add-card-modal");
-const addNewCardButton = document.querySelector(".profile__add-button");
+const cardUrlInput = addCardFormElement.querySelector(".modal__input-type-url");
 
 /* -------------------------------------------------------------------------- */
 /*                                  Elements                                  */
@@ -56,7 +60,6 @@ const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
-const addCardFormElement = addCardModal.querySelector("#add-card-form");
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -71,7 +74,6 @@ function getCardElement(cardData) {
   const cardTitleEl = cardElement.querySelector(".card__title");
   cardTitleEl.alt = cardData.name;
   cardImageEl.src = cardData.link;
-
   cardTitleEl.textContent = cardData.name;
   return cardElement;
 }
@@ -90,13 +92,16 @@ function handleProfileEditSubmit(e) {
   profileDescription.textContent = profileDescriptionInput.value;
   closePopop();
 }
-//function handleAddCardFormSubmit(e) {
+function handleAddCardFormSubmit(e) {
   e.preventDefault();
-  const titleValue = cardTitleInput.value;
-  const urlValue = cardUrlInput.value;
-  const cardElement = getCardElement;
+  const name = cardTitleInput.value;
+  const link = cardUrlInput.value;
+  const cardElement = getCardElement({
+    name,
+    link,
+  });
   closeModal(addCardModal);
-}//
+} //
 /* -------------------------------------------------------------------------- */
 /*                               Event Listener                               */
 /* -------------------------------------------------------------------------- */
@@ -105,7 +110,7 @@ profileEditButton.addEventListener("click", () => {
   profileDescriptionInput.value = profileDescription.textContent;
   profileEditModal.classList.add("modal_opened");
 });
-//addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
+addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 addCardModalCloseButton.addEventListener("click", () =>
   closeModal(addCardModal)
