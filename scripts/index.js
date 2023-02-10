@@ -51,6 +51,7 @@ const cardTemplate =
 function closePopop() {
   profileEditModal.classList.remove("modal_opened");
 }
+
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
@@ -60,6 +61,12 @@ function getCardElement(cardData) {
 
   cardTitleEl.textContent = cardData.name;
   return cardElement;
+}
+function openModal() {
+  addCardModal.classList.add("modal_opened");
+}
+function closeModal() {
+  addCardModalCloseButton.classList.remove("modal_opened");
 }
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
@@ -90,8 +97,4 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
   cardListEl.append(cardElement);
-});
-
-initialCards.forEach((cardData) => {
-  cardsWrap.prepend(getCardElement(initialCards[i]));
 });
