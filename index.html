@@ -75,7 +75,11 @@
     <!-- Add Card Modal-->
     <div class="modal" id="add-card-modal">
       <div class="modal__container">
-        <button class="modal__close" type="button"></button>
+        <button
+          class="modal__close"
+          type="button"
+          id="card__close-modal"
+        ></button>
         <form class="modal__form" id="add-card-form">
           <h3 class="modal__heading">New Place</h3>
           <fieldset class="modal__form-fieldset">
@@ -93,7 +97,7 @@
               placeholder="Image URL"
             />
             <span class="modal__form-divider"></span>
-            <button type="submit" class="modal__button">Save</button>
+            <button type="save" class="modal__button">Save</button>
           </fieldset>
         </form>
       </div>

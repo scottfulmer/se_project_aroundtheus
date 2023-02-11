@@ -28,14 +28,11 @@ const initialCards = [
 /* -------------------------------------------------------------------------- */
 /*                                   Buttons                                   */
 /* -------------------------------------------------------------------------- */
-const addCardFormElement = addCardModal.querySelector("#modal__form");
-
-const cardTitleInput = addCardFormElement.querySelector(
-  ".modal__input-type-title"
-);
+const addCardModal = document.querySelector("#add-card-modal");
 
 const profileEditButton = document.querySelector("#profile-edit-button");
-const addCardModalCloseButton = document.querySelector("#add-card-modal");
+const addCardModalCloseButton =
+  addCardModal.querySelector("#card__close-modal");
 const addNewCardButton = document.querySelector(".profile__add-button");
 
 /* -------------------------------------------------------------------------- */
@@ -48,18 +45,22 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 
-const cardUrlInput = addCardFormElement.querySelector(".modal__input-type-url");
-
 /* -------------------------------------------------------------------------- */
 /*                                  Elements                                  */
 /* -------------------------------------------------------------------------- */
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileEditClose = profileEditModal.querySelector("#profile-edit-close");
-const addCardModal = document.querySelector("#add-card-modal");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
+const addCardFormElement = addCardModal.querySelector("#add-card-form");
+
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
+
+const cardTitleInput = addCardFormElement.querySelector(
+  ".modal__input-type-title"
+);
+const cardUrlInput = addCardFormElement.querySelector(".modal__input-type-url");
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -83,6 +84,10 @@ function openModal() {
 function closeModal() {
   addCardModalCloseButton.classList.remove("modal_opened");
 }
+function renderCard(cardData, wrapper) {
+  const cardElement = getCardElement(cardData);
+  wrapper.prepend(cardElement);
+}
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
@@ -96,10 +101,7 @@ function handleAddCardFormSubmit(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
-  const cardElement = getCardElement({
-    name,
-    link,
-  });
+  renderCard({ name, link }, cardListEl);
   closeModal(addCardModal);
 } //
 /* -------------------------------------------------------------------------- */
@@ -120,7 +122,4 @@ profileEditClose.addEventListener("click", closePopop);
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
-initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
-  cardListEl.append(cardElement);
-});
+initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
