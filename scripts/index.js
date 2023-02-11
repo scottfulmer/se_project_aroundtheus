@@ -78,11 +78,11 @@ function getCardElement(cardData) {
   cardTitleEl.textContent = cardData.name;
   return cardElement;
 }
-function openModal() {
-  addCardModal.classList.add("modal_opened");
+function openModal(modal) {
+  modal.classList.add("modal_opened");
 }
-function closeModal() {
-  addCardModalCloseButton.classList.remove("modal_opened");
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
 }
 function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
