@@ -77,6 +77,13 @@ function getCardElement(cardData) {
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
   });
+  // find delete button
+
+  // add event listener to delete button
+  // call cardElement.remove(same thing as like button)
+
+  // add eventListener(click to card Image El)
+  //open modal with "previewImageModal"
 
   cardTitleEl.alt = cardData.name;
   cardImageEl.src = cardData.link;
