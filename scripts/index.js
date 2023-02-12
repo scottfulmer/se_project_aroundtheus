@@ -34,7 +34,11 @@ const profileEditButton = document.querySelector("#profile-edit-button");
 const addCardModalCloseButton =
   addCardModal.querySelector("#card__close-modal");
 const addNewCardButton = document.querySelector(".profile__add-button");
-
+const previewModal = document.querySelector(".preview-modal");
+const previewModalCloseButton = previewModal.querySelector(
+  ".preview__close-modal"
+);
+const previewImageModal = previewModal.querySelector(".preview-modal-image");
 /* -------------------------------------------------------------------------- */
 /*                                  Form Data                                 */
 /* -------------------------------------------------------------------------- */
@@ -67,15 +71,23 @@ const cardUrlInput = addCardFormElement.querySelector(".modal__input-type-url");
 function closePopop() {
   profileEditModal.classList.remove("modal_opened");
 }
+function showPreview(cardData) {
+  previewImageModal.src = card.image;
+  openModal(previewModal);
+}
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
-
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
+
   const likeButton = cardElement.querySelector(".card__like-button");
+  const deleteButton = cardElement.querySelector(".card__delete-button");
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
+  });
+  deleteButton.addEventListener("click", () => {
+    deleteButton.classList.remove(cardImageEl);
   });
   // find delete button
 
@@ -131,6 +143,11 @@ addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 addCardModalCloseButton.addEventListener("click", () =>
   closeModal(addCardModal)
 );
+previewModalCloseButton.addEventListener("click", () =>
+  openModal(previewModal)
+);
+
+cardImageEl.addEventListener("click", showPreview(cardData));
 
 profileEditClose.addEventListener("click", closePopop);
 
