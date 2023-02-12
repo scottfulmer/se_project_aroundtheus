@@ -102,20 +102,17 @@
         </form>
       </div>
 <!--Preview Modal-->
-<div class="modal modal_preview" id="preview-modal">
-  <div class="modal__container">
+<div class="modal" id="preview-image-modal">
+  <div class="modal__preview">
+    <img src="#" alt="modal-preview-img" class="modal__preview-image" />
+    <h1 class="modal__footer"></h1>
     <button
-      class="modal__close"
+      class="modal__close-button"
       type="button"
-      id="preview__close-modal"
-    >
-  <img src="" alt="" class="preview-modal-image">
-  </button>
-    
-        <span class="modal__form-divider"></span>
-      </fieldset>
-    </form>
+      id="preview-close-button"
+    ></button>
   </div>
+</div>
     <template id="card-template">
       <li class="card">
         <img src="./images/yosemite-valley.jpg" class="card__image" alt="" />
