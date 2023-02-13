@@ -101,36 +101,36 @@
           </fieldset>
         </form>
       </div>
-<!--Preview Modal-->
-<div class="modal" id="preview-image-modal">
-  <div class="modal__preview">
-    <img src="#" alt="modal-preview-img" class="modal__preview-image" />
-    <h1 class="modal__footer"></h1>
-    <button
-      class="modal__close-button"
-      type="button"
-      id="preview-close-button"
-    ></button>
-  </div>
-</div>
-    <template id="card-template">
-      <li class="card">
-        <img src="./images/yosemite-valley.jpg" class="card__image" alt="" />
-        <div class="card__description">
-          <h2 class="card__title"></h2>
-          <button
-            class="card__delete-button"
-            id="card-delete-button"
-            type="button"
-          >
-            <img src="./images/Trash.svg"/>
-          </button>
+    </div>
+    <!--Preview Modal-->
+    <div class="modal" id="preview-image-modal">
+      <div class="modal__preview">
+        <img src="#" alt="modal-preview-img" class="modal__preview-image" />
+        <h1 class="modal__footer"></h1>
+        <button
+          class="modal__close"
+          type="button"
+          id="preview-close-button"
+        ></button>
+      </div>
+      <template id="card-template">
+        <li class="card">
+          <img src="./images/yosemite-valley.jpg" class="card__image" alt="" />
+          <div class="card__description">
+            <h2 class="card__title"></h2>
+            <button
+              class="card__delete-button"
+              id="card-delete-button"
+              type="button"
+            >
+              <img src="./images/Trash.svg" />
+            </button>
 
-          <button class="card__like-button" type="button"></button>
-        </div>
-      </li>
-    </template>
-
+            <button class="card__like-button" type="button"></button>
+          </div>
+        </li>
+      </template>
+    </div>
     <script src="./scripts/index.js"></script>
   </body>
 </html>

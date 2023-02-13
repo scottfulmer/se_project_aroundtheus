@@ -118,27 +118,29 @@
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 9999;
 }
-
-.modalPreview__container {
-  position: fixed;
+.modal__preview {
+  position: absolute;
   width: 816px;
   height: 540px;
-  max-width: 75vw;
-  max-height: 75vh;
-  align-self: center;
-  justify-content: center;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  z-index: 3;
-  animation: fadeIn 0.3s ease;
+  left: 232px;
+  top: 90px;
 }
 
-.modal__preview-image {
-  width: 816px;
-  height: 540px;
+.modal__close-button {
+  position: absolute;
+  height: 40px;
+  left: 83.46%;
+  right: 13.42%;
+  top: 41px;
+}
+.modal__footer {
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: #ffffff;
 }
 
 .modal__preview-title {
