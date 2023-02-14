@@ -73,8 +73,8 @@ const cardUrlInput = addCardFormElement.querySelector(".modal__input-type-url");
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-function closePopop() {
-  profileEditModal.classList.remove("modal_opened");
+function closeProfileModal() {
+  closeModal(profileEditModal);
 }
 
 function getCardElement(cardData) {
@@ -96,14 +96,6 @@ function getCardElement(cardData) {
     previewModalFooter.textContent = cardData.name;
     previewImageModal.alt = cardData.name;
   });
-
-  // find delete button
-
-  // add event listener to delete button
-  // call cardElement.remove(same thing as like button)
-
-  // add eventListener(click to card Image El)
-  //open modal with "previewImageModal"
 
   cardTitleEl.alt = cardData.name;
   cardImageEl.src = cardData.link;
@@ -129,7 +121,7 @@ function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closePopop();
+  closeProfileModal();
 }
 function handleAddCardFormSubmit(e) {
   e.preventDefault();
@@ -146,7 +138,7 @@ function handleAddCardFormSubmit(e) {
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  profileEditModal.classList.add("modal_opened");
+  openModal(profileEditModal);
 });
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
@@ -154,7 +146,7 @@ addCardModalCloseButton.addEventListener("click", () =>
   closeModal(addCardModal)
 );
 
-profileEditClose.addEventListener("click", closePopop);
+profileEditClose.addEventListener("click", closeProfileModal);
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 

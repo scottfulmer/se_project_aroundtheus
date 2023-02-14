@@ -76,6 +76,7 @@
   padding: 0;
 }
 .modal__button:hover {
+  opacity: 0.6;
   cursor: pointer;
 }
 .modal__close {
@@ -91,6 +92,7 @@
   background-size: contain;
 }
 .modal__close:hover {
+  opacity: 0.6;
   cursor: pointer;
 }
 .modal__close-preview {

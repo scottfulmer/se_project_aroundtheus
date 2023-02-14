@@ -9,7 +9,9 @@
 .card__image {
   width: 282px;
   height: 282px;
+  cursor: pointer;
 }
+
 .card__description {
   display: flex;
   background-color: white;
