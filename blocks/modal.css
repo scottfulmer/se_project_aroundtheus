@@ -105,6 +105,7 @@
   left: calc(100% + 3px);
   transition: 0.2s ease;
 }
+
 .modal__close-preview:hover {
   cursor: pointer;
   opacity: 0.6;
