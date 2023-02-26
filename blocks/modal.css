@@ -55,15 +55,21 @@
   color: #000000;
 }
 
-.modal__form-divider {
+/* .modal__form-divider-error {
   width: 100%;
-  border-bottom: solid 1px #000;
+  border-bottom: solid 1px #ff0000;
   margin-bottom: 27px;
-}
+  position: absolute;
+  width: 164px;
+  height: 12px;
+  left: 461px;
+  top: 338px;
+  color: #ff0000;
+} */
 
-.modal__form-divider:nth-last-child {
+/* .modal__form-divider-error:nth-last-child {
   margin-bottom: 40px;
-}
+} */
 .modal__button {
   height: 50px;
   color: #fff;

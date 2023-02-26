@@ -61,12 +61,10 @@
               minlength="2"
               maxlength="40"
             />
-            <span
-              class="popup__error-message"
+            <!-- <span
+              class="modal__form-divider"
               id="profile-title-input-error"
-            ></span>
-
-            <span class="modal__form-divider"></span>
+            ></span> -->
             <input
               class="modal__form-input"
               type="text"
@@ -77,11 +75,11 @@
               minlength="2"
               maxlength="40"
             />
-            <span
-              class="popup__error-message"
+
+            <!-- <span
+              class="modal__form-divider-error"
               id="profile-description-input-error"
-            ></span>
-            <span class="modal__form-divider"></span>
+            ></span> -->
             <button type="submit" class="modal__button">Save</button>
           </fieldset>
         </form>
@@ -102,21 +100,35 @@
               class="modal__form-input modal__input-type-title"
               type="text"
               name="title"
+              id="modal-title-input"
               placeholder="Title"
               required
               minlength="1"
               maxlength="30"
             />
-            <span class="modal__form-divider"></span>
+            <!-- <span
+              class="modal__form-divider"
+              id="modal-title-input-error"
+            ></span> -->
             <input
               class="modal__form-input modal__input-type-url"
               type="text"
               name="url"
+              id="add-card-url"
               placeholder="Image link"
               required
             />
-            <span class="modal__form-divider"></span>
-            <button type="create" class="modal__button">Create</button>
+            <!-- <span
+              class="modal__form-divider-error"
+              id="add-card-url-error"
+            ></span> -->
+            <button
+              type="create"
+              class="modal__button modal__button_inactive"
+              disabled
+            >
+              Create
+            </button>
           </fieldset>
         </form>
       </div>
