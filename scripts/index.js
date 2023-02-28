@@ -146,8 +146,8 @@ addCardModalCloseButton.addEventListener("click", () =>
   closeModal(addCardModal)
 );
 addCardModal.addEventListener("click", (e) => {
-  e.target.classList.remove(addCardModal);
-  // if event.target classlist includes the class with name "modal"-> call closeModal function()
+  if (e.target.classList.contains("modal_opened"));
+  closeModal(e);
 });
 
 profileEditClose.addEventListener("click", closeProfileModal);
