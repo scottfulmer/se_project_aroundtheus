@@ -72,15 +72,8 @@ function enableValidation(options) {
       e.preventDefault();
     });
     setEventListeners(formElement, options);
-    //look for all inputs inside of form
-    //loop through all inputs to see if all are valid
-    //if input is not valid
-    //grab validation message
-    //add error class to input
-    //display error message
-    //disable button
-    //if all inputs are valid should enable button
-    //reset error messages
+    // how can i get the red line to pop up?
+    // closing the modal when clicking on the overlay
   });
 }
 

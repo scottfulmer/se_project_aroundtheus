@@ -145,10 +145,22 @@ addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 addCardModalCloseButton.addEventListener("click", () =>
   closeModal(addCardModal)
 );
-// addCardModal.addEventListener("click", (e) => {
-//   e.target.classList.contains("modal_opened");
-//   closeModal(modal);
-// });
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal")) {
+    // clicked on overlay
+    // find the modal that is opened
+    const openedModal = document.querySelector("modal_opened");
+    // close modal
+    closeModal(openedModal);
+  }
+});
+
+// window.onclick = function (event) {
+//   if ((event.target, classList.contains("modal_opened"))) {
+//     modal.style.display = "none";
+//   }
+// };
 
 profileEditClose.addEventListener("click", closeProfileModal);
 
