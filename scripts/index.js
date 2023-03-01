@@ -147,7 +147,7 @@ addCardModalCloseButton.addEventListener("click", () =>
 );
 
 document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("modal")) {
+  if (e.target.classList.contains("modal_opened")) {
     // clicked on overlay
     // find the modal that is opened
     const openedModal = document.querySelector("modal_opened");
