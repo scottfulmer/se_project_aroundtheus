@@ -145,10 +145,10 @@ addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 addCardModalCloseButton.addEventListener("click", () =>
   closeModal(addCardModal)
 );
-addCardModal.addEventListener("click", (e) => {
-  if (e.target.classList.contains("modal_opened"));
-  closeModal(e);
-});
+// addCardModal.addEventListener("click", (e) => {
+//   e.target.classList.contains("modal_opened");
+//   closeModal(modal);
+// });
 
 profileEditClose.addEventListener("click", closeProfileModal);
 
