@@ -39,6 +39,7 @@
 
 .modal__container-image {
   padding: 0;
+  background: #000;
 }
 .modal__form-fieldset {
   border: none;
@@ -65,7 +66,7 @@
 }
 
 .modal__form-divider-error {
-  width: 100%;
+  /* width: 100%; */
   margin-bottom: 27px;
   bottom: -15px;
   /* top: 35px; */
