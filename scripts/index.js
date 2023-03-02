@@ -148,19 +148,22 @@ addCardModalCloseButton.addEventListener("click", () =>
 
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("modal_opened")) {
-    // clicked on overlay
-    // find the modal that is opened
-    const openedModal = document.querySelector("modal_opened");
-    // close modal
-    closeModal(openedModal);
+    const openedModal = document.querySelector("modal");
+    console.log("modal_open");
+
+
+    closeModal(addCardModal);
+    closeModal(profileEditModal);
+    closeModal(previewModal);
   }
 });
 
-// window.onclick = function (event) {
-//   if ((event.target, classList.contains("modal_opened"))) {
-//     modal.style.display = "none";
-//   }
-// };
+document.addEventListener("keydown", () => {
+  if (evt.key 27) {
+    closeModal(addCardModal);
+  }
+});
+
 
 profileEditClose.addEventListener("click", closeProfileModal);
 
