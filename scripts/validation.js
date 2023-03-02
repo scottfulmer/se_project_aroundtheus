@@ -72,8 +72,6 @@ function enableValidation(options) {
       e.preventDefault();
     });
     setEventListeners(formElement, options);
-    // how can i get the red line to pop up?
-    // closing the modal when clicking on the overlay
   });
 }
 

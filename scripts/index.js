@@ -159,9 +159,7 @@ document.addEventListener("click", (e) => {
 });
 
 const handleEscapeUp = (modal) => {
-  console.log(modal);
   document.addEventListener("keydown", (evt) => {
-    console.log(evt.key);
     if (evt.key === "Escape") {
       closeModal(modal);
     }
