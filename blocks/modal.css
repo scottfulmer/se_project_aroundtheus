@@ -36,6 +36,10 @@
   padding: 36px;
   box-sizing: border-box;
 }
+
+.modal__container-image {
+  padding: 0;
+}
 .modal__form-fieldset {
   border: none;
   margin: 0;

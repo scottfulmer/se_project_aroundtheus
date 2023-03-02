@@ -109,6 +109,7 @@ function renderCard(cardData, wrapper) {
 }
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keyup", () => handleEscapeUp(modal));
 }
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
@@ -151,19 +152,21 @@ document.addEventListener("click", (e) => {
     const openedModal = document.querySelector("modal");
     console.log("modal_open");
 
-
     closeModal(addCardModal);
     closeModal(profileEditModal);
     closeModal(previewModal);
   }
 });
 
-document.addEventListener("keydown", () => {
-  if (evt.key 27) {
-    closeModal(addCardModal);
-  }
-});
-
+const handleEscapeUp = (modal) => {
+  console.log(modal);
+  document.addEventListener("keydown", (evt) => {
+    console.log(evt.key);
+    if (evt.key === "Escape") {
+      closeModal(modal);
+    }
+  });
+};
 
 profileEditClose.addEventListener("click", closeProfileModal);
 
