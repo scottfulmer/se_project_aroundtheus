@@ -110,10 +110,16 @@ function renderCard(cardData, wrapper) {
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keyup", handleEscapeUp);
+
+  // add event listener to this modal
+  modal.addEventListener("mousedown", closeModalOnRemoteClick);
 }
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keyup", handleEscapeUp);
+
+  // remove event listener from this modal
+  modal.removeEventListener("mousedown", closeModalOnRemoteClick);
 }
 function handleEscapeUp(e) {
   if (e.key === "Escape") {
@@ -135,11 +141,16 @@ function handleAddCardFormSubmit(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
+  const cardFormSubmitButton = document.querySelector(".modal__button");
   renderCard({ name, link }, cardListEl);
   cardTitleInput.value = "";
   cardUrlInput.value = "";
   closeModal(addCardModal);
-  toggleButtonState();
+  toggleButtonState(
+    [cardTitleInput, cardUrlInput],
+    cardFormSubmitButton,
+    config
+  );
 }
 /* -------------------------------------------------------------------------- */
 /*                               Event Listener                               */
@@ -159,15 +170,14 @@ function closeModalOnRemoteClick(evt) {
   if (evt.target === evt.currentTarget) {
     closeModal(evt.target);
   }
+  // if (evt.target.classList.contains("modal_opened")) {
+  //   const openedModal = document.querySelector(".modal_opened");
+  //   openedModal.addEventListener("mousedown", closeModalOnRemoteClick);
+
+  //   closeModal(openedModal);
+  //   openedModal.removeEventListener("mousedown", closeModalOnRemoteClick);
+  // }
 }
-
-document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("modal_opened")) {
-    const openedModal = document.querySelector(".modal_opened");
-
-    closeModal(openedModal);
-  }
-});
 
 profileEditClose.addEventListener("click", closeProfileModal);
 

@@ -1,6 +1,3 @@
-// enabling validation by calling enableValidation()
-// pass all the settings on call
-
 function showInputError(
   formElement,
   inputElement,
@@ -56,6 +53,7 @@ function setEventListeners(formElement, options) {
   const { inputSelector } = options;
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
   const submitButton = formElement.querySelector(".modal__button");
+  toggleButtonState(inputElements, submitButton, options);
 
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", (e) => {
@@ -74,6 +72,17 @@ function enableValidation(options) {
     setEventListeners(formElement, options);
   });
 }
+//   toggleButtonState() {
+//   const isFormValid = this._checkFormValidity();
+
+//   if (!isFormValid) {
+//     this._submitButton.classList.add(this._inactiveButtonClass);
+//     this._submitButton.disabled = true;
+//   } else {
+//     this._submitButton.classList.remove(this._inactiveButtonClass);
+//     this._submitButton.disabled = false;
+//   }
+// };
 
 const config = {
   formSelector: ".modal__form",
