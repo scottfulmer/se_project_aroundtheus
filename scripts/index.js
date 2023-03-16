@@ -1,3 +1,5 @@
+import FormValidator from "./FormValidator.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -111,14 +113,12 @@ function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keyup", handleEscapeUp);
 
-  // add event listener to this modal
   modal.addEventListener("mousedown", closeModalOnRemoteClick);
 }
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keyup", handleEscapeUp);
 
-  // remove event listener from this modal
   modal.removeEventListener("mousedown", closeModalOnRemoteClick);
 }
 function handleEscapeUp(e) {
@@ -127,6 +127,24 @@ function handleEscapeUp(e) {
     closeModal(openedModal);
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                 Validation                                 */
+/* -------------------------------------------------------------------------- */
+
+const validationSettings = {
+  inputSelector: ".modal__form-input",
+  submitButton: ".modal__button",
+  inactiveButtonClass: "modal__button_inactive",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
+
+
+const editFormValidator = new FormValidator(
+  validationSettings,
+  profileEditForm
+);
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
@@ -171,13 +189,6 @@ function closeModalOnRemoteClick(evt) {
   if (evt.target === evt.currentTarget) {
     closeModal(evt.target);
   }
-  // if (evt.target.classList.contains("modal_opened")) {
-  //   const openedModal = document.querySelector(".modal_opened");
-  //   openedModal.addEventListener("mousedown", closeModalOnRemoteClick);
-
-  //   closeModal(openedModal);
-  //   openedModal.removeEventListener("mousedown", closeModalOnRemoteClick);
-  // }
 }
 
 profileEditClose.addEventListener("click", closeProfileModal);
