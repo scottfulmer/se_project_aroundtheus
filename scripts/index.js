@@ -140,7 +140,6 @@ const validationSettings = {
   errorClass: "popup__error_visible",
 };
 
-
 const editFormValidator = new FormValidator(
   validationSettings,
   profileEditForm
@@ -165,11 +164,11 @@ function handleAddCardFormSubmit(e) {
   cardTitleInput.value = "";
   cardUrlInput.value = "";
   closeModal(addCardModal);
-  toggleButtonState(
-    [cardTitleInput, cardUrlInput],
-    cardFormSubmitButton,
-    config
-  );
+  // toggleButtonState(
+  //   [cardTitleInput, cardUrlInput],
+  //   cardFormSubmitButton,
+  //   config
+  // );
 }
 /* -------------------------------------------------------------------------- */
 /*                               Event Listener                               */
