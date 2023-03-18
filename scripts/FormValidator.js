@@ -66,19 +66,7 @@ class FormValidator {
     this._form.addEventListener("submit", (e) => {
       e.preventDefault();
     });
-    // this._setEventListeners();
   }
 }
 
 export default FormValidator;
-// _settings = {
-//   formSelector: ".modal__form",
-//   inputSelector: ".modal__form-input",
-//   submitButton: ".modal__button",
-//   inactiveButtonClass: "modal__button_inactive",
-//   inputErrorClass: "popup__input_type_error",
-//   errorClass: "popup__error_visible",
-// };
-
-//  const editFormValidator = new FormValidator(settings, editForm);
-//  const addFormValidator = new FormValidator(settings, addForm);
