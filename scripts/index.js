@@ -1,7 +1,6 @@
 import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
-import Utils from "./utils.js";
-
+import { openModal, closeModal } from "./utils.js";
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -51,7 +50,6 @@ const profileDescriptionInput = document.querySelector(
 /* -------------------------------------------------------------------------- */
 /*                                Preview Modal                               */
 /* -------------------------------------------------------------------------- */
-
 const previewModal = document.querySelector("#preview-image-modal");
 const previewImageModal = document.querySelector(".modal__preview-image");
 const previewModalFooter = document.querySelector(".modal__footer");
@@ -113,29 +111,6 @@ const renderCard = (cardData, wrapper) => {
   const card = new Card(cardData, cardSelector);
   wrapper.prepend(card.getView());
 };
-
-// function renderCard(cardData, wrapper) {
-//   const cardElement = getCardElement(cardData);
-//   wrapper.prepend(cardElement);
-// }
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-  document.addEventListener("keyup", handleEscapeUp);
-
-  modal.addEventListener("mousedown", closeModalOnRemoteClick);
-}
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keyup", handleEscapeUp);
-
-  modal.removeEventListener("mousedown", closeModalOnRemoteClick);
-}
-function handleEscapeUp(e) {
-  if (e.key === "Escape") {
-    const openedModal = document.querySelector(".modal_opened");
-    closeModal(openedModal);
-  }
-}
 
 /* -------------------------------------------------------------------------- */
 /*                                 Validation                                 */

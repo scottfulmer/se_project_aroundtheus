@@ -2,24 +2,7 @@ const previewModal = document.querySelector("#preview-image-modal");
 const previewImageModal = document.querySelector(".modal__preview-image");
 const previewModalFooter = document.querySelector(".modal__footer");
 
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-  document.addEventListener("keyup", handleEscapeUp);
-
-  modal.addEventListener("mousedown", closeModalOnRemoteClick);
-}
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keyup", handleEscapeUp);
-
-  modal.removeEventListener("mousedown", closeModalOnRemoteClick);
-}
-function handleEscapeUp(e) {
-  if (e.key === "Escape") {
-    const openedModal = document.querySelector(".modal_opened");
-    closeModal(openedModal);
-  }
-}
+import { openModal, closeModal } from "./utils.js";
 
 class Card {
   constructor(cardData, cardSelector) {
@@ -45,10 +28,9 @@ class Card {
       .querySelector(".card__delete-button")
       .addEventListener("click", this._handleDeleteCard);
 
-    // deleteButton.addEventListener("click", () => {
-    //   cardElement.remove();
-
-    // });
+    this._element
+      .querySelector(".card__image")
+      .addEventListener("click", this._handlePreviewPicture);
   }
   _handleLikeIcon() {
     this._element
@@ -56,23 +38,24 @@ class Card {
       .classList.toggle("card__like-button_active");
   }
   _handleDeleteCard() {
-    this._element.querySelector(".card__delete-button").remove();
+    this._element.querySelector(".card__delete-button").remove(this);
   }
 
   _handlePreviewPicture() {
-    this._element.querySelector();
+    // previewImageModal.src = cardData.link;
+    // previewModalFooter.textContent = cardData.name;
+    // previewImageModal.alt = cardData.name;
 
-    cardImageEl.addEventListener("click", () => {
-      openModal(previewModal);
-      previewImageModal.src = cardData.link;
-      previewModalFooter.textContent = cardData.name;
-      previewImageModal.alt = cardData.name;
-    });
+    openModal(previewModal);
   }
 
   getView() {
     this._element = this._getTemplate();
+    this._element.querySelector(".card__title").textContent = this._name;
+    this._element.querySelector(".card__image").src = this._link;
     this._setEventListeners();
+
+    return this._element;
   }
 }
 
