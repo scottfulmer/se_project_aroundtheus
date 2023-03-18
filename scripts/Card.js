@@ -1,6 +1,7 @@
 const previewModal = document.querySelector("#preview-image-modal");
 const previewImageModal = document.querySelector(".modal__preview-image");
 const previewModalFooter = document.querySelector(".modal__footer");
+const cardImageEl = document.querySelector(".card__image");
 
 import { openModal, closeModal } from "./utils.js";
 
@@ -37,14 +38,15 @@ class Card {
       .querySelector(".card__like-button")
       .classList.toggle("card__like-button_active");
   }
-  _handleDeleteCard() {
-    this._element.querySelector(".card__delete-button").remove(this);
-  }
+  _handleDeleteCard = () => {
+    this._element.remove();
+    this._element = null;
+  };
 
   _handlePreviewPicture() {
-    // previewImageModal.src = cardData.link;
-    // previewModalFooter.textContent = cardData.name;
-    // previewImageModal.alt = cardData.name;
+    previewImageModal.src = this._link;
+    previewModalFooter.textContent = this._name;
+    previewImageModal.alt = this._name;
 
     openModal(previewModal);
   }
