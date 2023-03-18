@@ -1,4 +1,5 @@
 import FormValidator from "./FormValidator.js";
+import Card from "./Card.js";
 
 const initialCards = [
   {
@@ -71,6 +72,8 @@ const cardTitleInput = addCardFormElement.querySelector(
 );
 const cardUrlInput = addCardFormElement.querySelector(".modal__input-type-url");
 
+const cardSelector = "#card-template";
+
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
@@ -105,10 +108,15 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
-function renderCard(cardData, wrapper) {
-  const cardElement = getCardElement(cardData);
-  wrapper.prepend(cardElement);
-}
+const renderCard = (cardData, wrapper) => {
+  const card = new Card(cardData, cardSelector);
+  wrapper.prepend(card.getView());
+};
+
+// function renderCard(cardData, wrapper) {
+//   const cardElement = getCardElement(cardData);
+//   wrapper.prepend(cardElement);
+// }
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keyup", handleEscapeUp);
@@ -145,6 +153,14 @@ const editFormValidator = new FormValidator(
   profileEditForm
 );
 
+const addFormValidator = new FormValidator(
+  validationSettings,
+  addCardFormElement
+);
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
+
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
@@ -164,11 +180,6 @@ function handleAddCardFormSubmit(e) {
   cardTitleInput.value = "";
   cardUrlInput.value = "";
   closeModal(addCardModal);
-  // toggleButtonState(
-  //   [cardTitleInput, cardUrlInput],
-  //   cardFormSubmitButton,
-  //   config
-  // );
 }
 /* -------------------------------------------------------------------------- */
 /*                               Event Listener                               */
