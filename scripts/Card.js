@@ -43,13 +43,13 @@ class Card {
     this._element = null;
   };
 
-  _handlePreviewPicture() {
+  _handlePreviewPicture = () => {
     previewImageModal.src = this._link;
     previewModalFooter.textContent = this._name;
     previewImageModal.alt = this._name;
 
     openModal(previewModal);
-  }
+  };
 
   getView() {
     this._element = this._getTemplate();
