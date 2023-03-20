@@ -19,7 +19,7 @@ class FormValidator {
   }
 
   _toggleButtonState() {
-    if (hasInvalidInput(this._inputElements)) {
+    if (this._hasInvalidInput(this._inputElements)) {
       this._submitButton.classList.add(this._inactiveButtonClass);
       this._submitButton.disabled = true;
     } else {
@@ -29,6 +29,11 @@ class FormValidator {
   }
   _hasInvalidInput(inputList) {
     return inputList.some((inputElement) => {
+      // inputElement here you expect only one, as element. But you receive two elements as array
+      console.log("------------------------------------------");
+      console.log(inputList);
+      console.log(inputElement);
+      console.log(inputElement.validity);
       return !inputElement.validity.valid;
     });
   }
@@ -44,7 +49,7 @@ class FormValidator {
   _setEventListeners() {
     this._inputElements = [this._form.querySelectorAll(this._inputSelector)];
     this._submitButton = this._form.querySelector(this._submitButton);
-    toggleButtonState(
+    this._toggleButtonState(
       this._inputElements,
       this._submitButton,
       this._inputSelector
@@ -53,7 +58,7 @@ class FormValidator {
     this._inputElements.forEach((inputElement) => {
       inputElement.addEventListener("input", (e) => {
         checkInputValidity(this._form, inputElement, this._inputSelector);
-        toggleButtonState(
+        this._toggleButtonState(
           this._inputElements,
           this._submitButton,
           this._inputSelector
@@ -66,6 +71,7 @@ class FormValidator {
     this._form.addEventListener("submit", (e) => {
       e.preventDefault();
     });
+    this._setEventListeners();
   }
 }
 
