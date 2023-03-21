@@ -155,6 +155,7 @@ function handleAddCardFormSubmit(e) {
   renderCard({ name, link }, cardListEl);
   cardTitleInput.value = "";
   cardUrlInput.value = "";
+  addFormValidator.resetValidation();
   closeModal(addCardModal);
 }
 /* -------------------------------------------------------------------------- */
