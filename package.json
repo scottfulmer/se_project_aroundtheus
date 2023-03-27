@@ -1,0 +1,14 @@
+{
+  "name": "se_project_aroundtheus",
+  "version": "1.0.0",
+  "description": "Intro\r Figma\r Images\r Intro",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "5.73.0"
+  }
+}
