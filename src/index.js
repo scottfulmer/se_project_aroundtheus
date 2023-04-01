@@ -1,4 +1,4 @@
-import "../pages/index.css";
+import "./pages/index.css";
 
 import FormValidator from "./scripts/FormValidator.js";
 import Card from "./scripts/Card.js";
