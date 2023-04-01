@@ -6,14 +6,12 @@
 
     <meta content="ie=edge" http-equiv="X-UA-Compatible" />
     <title>Around the U.S</title>
-    <link href="./pages/index.css" rel="stylesheet" />
-    <link href="./favicon.ico" rel="stylesheet" />
   </head>
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
         <img
-          src="./images/logo.svg"
+          src="<%=required('./images/logo.svg')%>"
           alt="Around the US logo"
           class="header__logo"
         />
@@ -21,7 +19,7 @@
       <main class="content">
         <section class="profile">
           <img
-            src="./images/jacques-cousteau.jpg"
+            src="<%=required('./images/jacques-cousteau.jpg')%>"
             alt="Avatar"
             class="profile__image"
           />
@@ -157,7 +155,7 @@
               id="card-delete-button"
               type="button"
             >
-              <img src="./images/Trash.svg" />
+              <img src="<%=require('./images/Trash.svg')%>" />
             </button>
 
             <button class="card__like-button" type="button"></button>
@@ -165,6 +163,5 @@
         </li>
       </template>
     </div>
-    <script defer src="./scripts/index.js" type="module"></script>
   </body>
 </html>
