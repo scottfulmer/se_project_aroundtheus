@@ -3,7 +3,7 @@ const previewImageModal = document.querySelector(".modal__preview-image");
 const previewModalFooter = document.querySelector(".modal__footer");
 const cardImageEl = document.querySelector(".card__image");
 
-import { openModal, closeModal } from "./Utils.js";
+import { openModal, closeModal } from "../Utils.js";
 
 class Card {
   constructor(cardData, cardSelector) {

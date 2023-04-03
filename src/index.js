@@ -1,7 +1,7 @@
 import "./pages/index.css";
 
-import FormValidator from "./scripts/FormValidator.js";
-import Card from "./scripts/Card.js";
+import FormValidator from "./scripts/components/FormValidator.js";
+import Card from "./scripts/components/Card.js";
 import { openModal, closeModal } from "./scripts/Utils.js";
 const initialCards = [
   {
