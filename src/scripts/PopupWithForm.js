@@ -12,7 +12,19 @@ class PopupWithForm extends Popup {
   }
 }
 
-const newCardPopup = new PopupWithForm("#add-card-modal", () => {});
-newCardPopup.open();
+const addCardModal = new PopupWithForm("#add-card-modal", () => {});
+addCardModal.open();
 
-newCardPopup.close();
+addCardModal.close();
+
+cardImageEl.addEventListener("click", () => {
+  openModal(previewModal);
+  previewImageModal.src = cardData.link;
+  previewModalFooter.textContent = cardData.name;
+  previewImageModal.alt = cardData.name;
+});
+profileEditButton.addEventListener("click", () => {
+  profileTitleInput.value = profileTitle.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
+  openModal(profileEditModal);
+});
