@@ -1,19 +1,22 @@
 import { closeModal, openModal } from "./Utils.js";
+import  handleEscapeUp  from "./Utils.js";
 
 export default class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(popupSelector);
     this._closeModal = document.querySelector(closeModal);
     this._openModal = document.querySelector(openModal);
+    this._handleEscapeUp = this._handleEscapeUp.bind(this);
   }
   open() {
     //open modals
-    function openModal() {}
+this._popupElement.classList.add('modal_opened');
+document.addEventListener('click', this._openModal);
   }
   close() {
     //close modals
-    function closeProfileModal() {
-      closeModal(profileEditModal);
+   this._popupElement.classList.remove('.modal_opened');
+   document.removeEventListener('keyup', this._handleEscapeUp);
     }
 
     function closeModalOnRemoteClick(evt) {
@@ -22,7 +25,7 @@ export default class Popup {
       }
     }
   }
-  _handleEscClose() {
+  _handleEsccapeUp() {
     //handle ESC key
 
     function handleEscapeUp(e) {

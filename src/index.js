@@ -3,6 +3,12 @@ import "./pages/index.css";
 import FormValidator from "./scripts/components/FormValidator.js";
 import Card from "./scripts/components/Card.js";
 import { openModal, closeModal } from "./scripts/Utils.js";
+import Section from "./scripts/components/Section.js";
+// import Popup from "./scripts/Popup.js";
+// import PopupWithForm from "./scripts/PopupWithForm.js";
+// import PopupWithImages from "./scripts/PopupWithImages.js";
+// import UserInfo from "./scripts/UserInfo.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",

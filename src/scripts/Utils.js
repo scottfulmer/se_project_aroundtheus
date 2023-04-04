@@ -10,7 +10,7 @@ export function closeModal(modal) {
 
   modal.removeEventListener("mousedown", closeModalOnRemoteClick);
 }
-function handleEscapeUp(e) {
+export function handleEscapeUp(e) {
   if (e.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
     closeModal(openedModal);
