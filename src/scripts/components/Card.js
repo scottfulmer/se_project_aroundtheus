@@ -3,9 +3,9 @@ const previewImageModal = document.querySelector(".modal__preview-image");
 const previewModalFooter = document.querySelector(".modal__footer");
 const cardImageEl = document.querySelector(".card__image");
 
-import { openModal, closeModal } from "../Utils.js";
+import { openModal, closeModal } from "./Utils.js";
 
-class Card {
+export default class Card {
   constructor(cardData, cardSelector) {
     this._name = cardData.name;
     this._link = cardData.link;
@@ -61,5 +61,3 @@ class Card {
     return this._element;
   }
 }
-
-export default Card;
