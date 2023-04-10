@@ -6,9 +6,9 @@ const cardImageEl = document.querySelector(".card__image");
 import { openModal, closeModal } from "./Utils.js";
 
 export default class Card {
-  constructor(cardData, cardSelector) {
-    this._name = cardData.name;
-    this._link = cardData.link;
+  constructor({ name, link }, cardSelector) {
+    this._name = name;
+    this._link = link;
 
     this._cardSelector = cardSelector;
   }
