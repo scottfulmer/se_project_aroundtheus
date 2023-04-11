@@ -6,11 +6,13 @@ export default class Popup {
     //open modals
     this._popupElement.classList.add("modal_opened");
     document.addEventListener("keyup", this._handleEscapeUp);
+    document.addEventListener("mousedown", this._handleOverlay);
   }
   close() {
     //close modals
     this._popupElement.classList.remove(".modal_opened");
     document.removeEventListener("keyup", this._handleEscapeUp);
+    document.removeEventListener("mousedown", this._handleOverlay);
   }
 
   _handleEsccapeUp() {
@@ -25,12 +27,10 @@ export default class Popup {
     }
   }
   setEventListeners() {
-    //handle event listeners
-    this._popupElement
-      .querySelector(".modal__close")
-      .addEventListener("click", () => this.close());
-    this._popupElement.addEventListener("mousedown", (e) =>
-      this._handleOverlay(e)
-    );
+    this._popupElement.addEventListener("click", (e) => {
+      if (e.target.classList.contains(".modal__close")) {
+        this.close();
+      }
+    });
   }
 }

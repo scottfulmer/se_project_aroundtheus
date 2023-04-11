@@ -5,7 +5,7 @@ export default class PopupWithForm extends Popup {
     super({ popupSelector });
     this._popupForm = this._popupElement.querySelector(".add-card-form");
     this._handleFormSubmit = handleFormSubmit;
-    this._formInput - this._popupElement.querySelectorAll(".modal__form-input");
+    this._formInput = this._popupElement.querySelectorAll(".modal__form-input");
   }
 
   _getInputValues() {
@@ -24,11 +24,7 @@ export default class PopupWithForm extends Popup {
     super.setEventListeners();
     this._popupForm.addEventListener("submit", this._handleSubmit);
   }
-  setInputValues(cardData) {
-    this._formInput.forEach((input) => {
-      input.value = cardData[input.name];
-    });
-  }
+
   close() {
     this._popupForm.reset();
     super.close();
