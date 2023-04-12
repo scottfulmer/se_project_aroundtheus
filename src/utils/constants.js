@@ -57,6 +57,24 @@ export const previewModalFooter = document.querySelector(".modal__footer");
 export const previewImageModal = document.querySelector(
   ".modal__preview-image"
 );
+export const profileEditClose = profileEditModal.querySelector(
+  "#profile-edit-close"
+);
+export const cardTemplate =
+  document.querySelector("#card-template").content.firstElementChild;
+
+export const addCardModalCloseButton =
+  addCardModal.querySelector("#card__close-modal");
+
+export const profileDescription = document.querySelector(
+  ".profile__description"
+);
+
+export const previewModal = document.querySelector("#preview-image-modal");
+
+export const modalPreviewCloseBtn = document.querySelector(
+  "#preview-close-button"
+);
 
 export const validationSettings = {
   inputSelector: ".modal__form-input",
