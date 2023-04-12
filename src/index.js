@@ -56,43 +56,43 @@ addFormValidator.enableValidation();
 function closeProfileModal() {
   closeModal(profileEditModal);
 }
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
+// function getCardElement(cardData) {
+//   const cardElement = cardTemplate.cloneNode(true);
 
-  const cardImageEl = cardElement.querySelector(".card__image");
+//   const cardImageEl = cardElement.querySelector(".card__image");
 
-  const cardTitleEl = cardElement.querySelector(".card__title");
+//   const cardTitleEl = cardElement.querySelector(".card__title");
 
-  const likeButton = cardElement.querySelector(".card__like-button");
+//   const likeButton = cardElement.querySelector(".card__like-button");
 
-  const deleteButton = cardElement.querySelector(".card__delete-button");
+//   const deleteButton = cardElement.querySelector(".card__delete-button");
 
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
+//   likeButton.addEventListener("click", () => {
+//     likeButton.classList.toggle("card__like-button_active");
+//   });
 
-  deleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
+//   deleteButton.addEventListener("click", () => {
+//     cardElement.remove();
+//   });
 
-  cardImageEl.addEventListener("click", () => {
-    openModal(previewModal);
+//   cardImageEl.addEventListener("click", () => {
+//     openModal(previewModal);
 
-    previewImageModal.src = cardData.link;
+//     previewImageModal.src = cardData.link;
 
-    previewModalFooter.textContent = cardData.name;
+//     previewModalFooter.textContent = cardData.name;
 
-    previewImageModal.alt = cardData.name;
-  });
+//     previewImageModal.alt = cardData.name;
+//   });
 
-  cardTitleEl.alt = cardData.name;
+//   cardTitleEl.alt = cardData.name;
 
-  cardImageEl.src = cardData.link;
+//   cardImageEl.src = cardData.link;
 
-  cardTitleEl.textContent = cardData.name;
+//   cardTitleEl.textContent = cardData.name;
 
-  return cardElement;
-}
+//   return cardElement;
+// }
 
 const renderCard = (cardData, wrapper) => {
   const card = new Card(cardData, cardSelector);
@@ -153,11 +153,11 @@ addCardModalCloseButton.addEventListener("click", () =>
   closeModal(addCardModal)
 );
 
-function closeModalOnRemoteClick(evt) {
-  if (evt.target === evt.currentTarget) {
-    closeModal(evt.target);
-  }
-}
+// function closeModalOnRemoteClick(evt) {
+//   if (evt.target === evt.currentTarget) {
+//     closeModal(evt.target);
+//   }
+// }
 
 profileEditClose.addEventListener("click", closeProfileModal);
 
