@@ -3,14 +3,14 @@
 /* -------------------------------------------------------------------------- */
 
 import "./pages/index.css";
-import FormValidator from "./scripts/components/FormValidator.js";
-import Card from "./scripts/components/Card.js";
-import { openModal, closeModal } from "./scripts/components/Utils.js";
-import Popup from "./scripts/components/Popup.js";
-import PopupWithImages from "./scripts/components/PopupWithImages.js";
-import PopupWithForm from "./scripts/components/PopupWithForm.js";
-import Section from "./scripts/components/Section.js";
-import UserInfo from "./scripts/components/UserInfo.js";
+import FormValidator from "./components/FormValidator.js";
+import Card from "./components/Card.js";
+import { openModal, closeModal } from "./utils/utils.js";
+import Popup from "./components/Popup.js";
+import PopupWithImages from "./components/PopupWithImages.js";
+import PopupWithForm from "./components/PopupWithForm.js";
+import Section from "./components/Section.js";
+import UserInfo from "./components/UserInfo.js";
 import {
   initialCards,
   addCardModal,

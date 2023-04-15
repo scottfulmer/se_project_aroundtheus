@@ -2,7 +2,7 @@ export default class Section {
   constructor({ items, renderer }, cardListEl) {
     this._items = items;
     this._renderer = renderer;
-    this._cardList = cardListEl;
+    this.itemsList = cardListEl;
   }
   renderItems() {
     this._items.forEach((item) => {
@@ -10,6 +10,6 @@ export default class Section {
     });
   }
   addItem(item) {
-    this._cardList.append(item);
+    this.itemsList.append(item);
   }
 }
