@@ -4,10 +4,10 @@ const previewModalFooter = document.querySelector(".modal__footer");
 const cardImageEl = document.querySelector(".card__image");
 
 export default class Card {
-  constructor({ name, link }, cardSelector) {
+  constructor({ name, link }, cardSelector, handleImageClick) {
     this._name = name;
     this._link = link;
-
+    this._handleImageClick = handleImageClick;
     this._cardSelector = cardSelector;
   }
 
@@ -29,7 +29,7 @@ export default class Card {
 
     this._element
       .querySelector(".card__image")
-      .addEventListener("click", this._handlePreviewPicture);
+      .addEventListener("click", this._handleImageClick);
   }
   _handleLikeIcon() {
     this._element
@@ -39,14 +39,6 @@ export default class Card {
   _handleDeleteCard = () => {
     this._element.remove();
     this._element = null;
-  };
-
-  _handlePreviewPicture = () => {
-    previewImageModal.src = this._link;
-    previewModalFooter.textContent = this._name;
-    previewImageModal.alt = this._name;
-
-    openModal(previewModal);
   };
 
   getView() {

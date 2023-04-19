@@ -95,12 +95,18 @@ function closeProfileModal() {
 // }
 
 const renderCard = (cardData, wrapper) => {
-  const card = new Card(cardData, cardSelector);
+  const card = new Card(cardData, cardSelector, () => {
+    previewImageModal.src = cardData.link;
+    previewModalFooter.textContent = cardData.name;
+    previewImageModal.alt = cardData.name;
+
+    openModal(previewModal);
+  });
 
   wrapper.prepend(card.getView());
 };
 
-function handleProfileEditSubmit(e) {
+function handleFormSubmit(e) {
   e.preventDefault();
 
   profileTitle.textContent = profileTitleInput.value;
@@ -161,7 +167,7 @@ addCardModalCloseButton.addEventListener("click", () =>
 
 profileEditClose.addEventListener("click", closeProfileModal);
 
-profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+profileEditForm.addEventListener("submit", handleFormSubmit);
 
 modalPreviewCloseBtn.addEventListener("click", () => closeModal(previewModal));
 
