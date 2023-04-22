@@ -3,7 +3,7 @@ import Popup from "./Popup.js";
 export default class PopupWithForm extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super({ popupSelector });
-    this._popupForm = this._popupElement.querySelector(".add-card-form");
+    this._popupForm = this._popupElement.querySelector(".modal__form");
     this._handleFormSubmit = handleFormSubmit;
     this._formInput = this._popupElement.querySelectorAll(".modal__form-input");
   }
@@ -13,7 +13,7 @@ export default class PopupWithForm extends Popup {
     this._formInput.forEach((input) => {
       formValue[input.name] = input.value;
     });
-    return formValue;
+    return this._formValue;
   }
   _handleSubmit = (e) => {
     e.preventDefault();

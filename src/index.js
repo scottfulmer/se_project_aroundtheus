@@ -5,7 +5,7 @@
 import "./pages/index.css";
 import FormValidator from "./components/FormValidator.js";
 import Card from "./components/Card.js";
-import { openModal, closeModal } from "./utils/utils.js";
+// import { openModal, closeModal } from "./utils/utils.js";
 import Popup from "./components/Popup.js";
 import PopupWithImages from "./components/PopupWithImages.js";
 import PopupWithForm from "./components/PopupWithForm.js";
@@ -53,9 +53,48 @@ const addFormValidator = new FormValidator(
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-function closeProfileModal() {
-  closeModal(profileEditModal);
-}
+/* -------------------------------------------------------------------------- */
+/*                                New Functions                               */
+/* -------------------------------------------------------------------------- */
+
+const popupImage = new PopupWithImages(".modal__preview-image", () => {});
+popupImage.open();
+popupImage.close();
+const popupForm = new PopupWithForm("#add-card-modal", () => {});
+popupForm.open();
+popupForm.close();
+
+const section = new Section(
+  {
+    initialCards,
+    renderer: (cardData) => {
+      section.addItem(cardData);
+    },
+  },
+  "cards__list"
+);
+
+const userInfo = new UserInfo();
+
+const card = new Card();
+card.getView();
+
+/* -------------------------------------------------------------------------- */
+/*                           New Event Listeners                              */
+/* -------------------------------------------------------------------------- */
+// addNewCardButton.addEventListener("click", () => {
+//   addCardModal.open();
+// });
+// profileEditButton.addEventListener("click", () => {
+//   profileEditModal.open();
+// });
+popupForm.setEventListeners();
+popupImage.setEventListeners();
+
+/* -------------------------------------------------------------------------- */
+/*                                  Old Code                                  */
+/* -------------------------------------------------------------------------- */
+
 // function getCardElement(cardData) {
 //   const cardElement = cardTemplate.cloneNode(true);
 
@@ -93,49 +132,47 @@ function closeProfileModal() {
 
 //   return cardElement;
 // }
+// const renderCard = (cardData, wrapper) => {
+//   const card = new Card(cardData, cardSelector, () => {
+//     previewImageModal.src = cardData.link;
+//     previewModalFooter.textContent = cardData.name;
+//     previewImageModal.alt = cardData.name;
 
-const renderCard = (cardData, wrapper) => {
-  const card = new Card(cardData, cardSelector, () => {
-    previewImageModal.src = cardData.link;
-    previewModalFooter.textContent = cardData.name;
-    previewImageModal.alt = cardData.name;
+//     openModal(previewModal);
+//   });
 
-    openModal(previewModal);
-  });
+//   wrapper.prepend(card.getView());
+// };
 
-  wrapper.prepend(card.getView());
-};
+// function handleFormSubmit(e) {
+//   e.preventDefault();
 
-function handleFormSubmit(e) {
-  e.preventDefault();
+//   profileTitle.textContent = profileTitleInput.value;
 
-  profileTitle.textContent = profileTitleInput.value;
+//   profileDescription.textContent = profileDescriptionInput.value;
 
-  profileDescription.textContent = profileDescriptionInput.value;
+//   closeProfileModal();
+// }
 
-  closeProfileModal();
-}
+// function handleAddCardFormSubmit(e) {
+//   e.preventDefault();
 
-function handleAddCardFormSubmit(e) {
-  e.preventDefault();
+//   const name = cardTitleInput.value;
 
-  const name = cardTitleInput.value;
+//   const link = cardUrlInput.value;
 
-  const link = cardUrlInput.value;
+//   const cardFormSubmitButton =
+//     addCardFormElement.querySelector(".modal__button");
 
-  const cardFormSubmitButton =
-    addCardFormElement.querySelector(".modal__button");
+//   renderCard({ name, link }, cardListEl);
 
-  renderCard({ name, link }, cardListEl);
+//   cardTitleInput.value = "";
 
-  cardTitleInput.value = "";
+//   cardUrlInput.value = "";
 
-  cardUrlInput.value = "";
+//   addFormValidator.resetValidation();
 
-  addFormValidator.resetValidation();
-
-  closeModal(addCardModal);
-}
+//   closeModal(addCardModal);
 
 /* -------------------------------------------------------------------------- */
 
@@ -143,32 +180,32 @@ function handleAddCardFormSubmit(e) {
 
 /* -------------------------------------------------------------------------- */
 
-profileEditButton.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent;
+// profileEditButton.addEventListener("click", () => {
+//   profileTitleInput.value = profileTitle.textContent;
 
-  profileDescriptionInput.value = profileDescription.textContent;
+//   profileDescriptionInput.value = profileDescription.textContent;
 
-  openModal(profileEditModal);
-});
+//   openModal(profileEditModal);
+// });
 
-addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
+// addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 
-addNewCardButton.addEventListener("click", () => openModal(addCardModal));
+// addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 
-addCardModalCloseButton.addEventListener("click", () =>
-  closeModal(addCardModal)
-);
+// addCardModalCloseButton.addEventListener("click", () =>
+//   closeModal(addCardModal)
+// );
 
-// function closeModalOnRemoteClick(evt) {
-//   if (evt.target === evt.currentTarget) {
-//     closeModal(evt.target);
-//   }
-// }
+// // function closeModalOnRemoteClick(evt) {
+// //   if (evt.target === evt.currentTarget) {
+// //     closeModal(evt.target);
+// //   }
+// // }
 
-profileEditClose.addEventListener("click", closeProfileModal);
+// profileEditClose.addEventListener("click", closeProfileModal);
 
-profileEditForm.addEventListener("submit", handleFormSubmit);
+// profileEditForm.addEventListener("submit", handleFormSubmit);
 
-modalPreviewCloseBtn.addEventListener("click", () => closeModal(previewModal));
+// modalPreviewCloseBtn.addEventListener("click", () => closeModal(previewModal));
 
-initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+// initialCards.forEach((cardData) => renderCard(cardData, cardListEl));

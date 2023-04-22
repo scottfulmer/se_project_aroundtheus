@@ -1,8 +1,3 @@
-const previewModal = document.querySelector("#preview-image-modal");
-const previewImageModal = document.querySelector(".modal__preview-image");
-const previewModalFooter = document.querySelector(".modal__footer");
-const cardImageEl = document.querySelector(".card__image");
-
 export default class Card {
   constructor({ name, link }, cardSelector, handleImageClick) {
     this._name = name;
